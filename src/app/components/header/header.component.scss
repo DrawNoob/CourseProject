@@ -1,0 +1,63 @@
+.navbar-default{
+    background-image: url(./../../../assets/Header.png);
+    background-size: cover;
+    background-position: 100%;
+    border: none;
+    border-top: 1px solid rgb(175, 114, 0);
+    border-bottom: 2px solid rgb(175, 114, 0);
+    .dropdown-menu{
+        padding: 0;
+        a{
+            padding: 14px 0;
+            text-align: center;
+        }
+    }
+    .container-fluid{
+        padding: 0;
+    }
+    a{
+        color: orange !important;
+        font-weight: bold;
+        background: rgba(0, 0, 0, 0.752);
+        &:hover{
+            background-color: rgba(230, 164, 11, 0.85) !important;
+            color: black !important;
+        }
+    }
+    .active a{
+        background-color: rgb(230, 164, 11) !important;
+        color: black !important;
+    }
+    .navbar-brand{
+        padding-left: 30px;
+    }
+}
+
+.navbar-collapse{
+    padding-right: 0;
+    .navbar-nav{
+        margin: 0;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    .navbar-default{
+        background-size: auto;
+        .navbar-toggle{
+            background-color: orange;
+            border: 2px solid black;
+            margin-right: 25px;
+        }
+        .icon-bar{
+            background-color: black;
+        }
+    }
+    .navbar-collapse{
+        .navbar-nav{
+            a{
+                background: rgba(0, 0, 0, 0.9);
+                text-align: center;
+            }
+        }
+    }
+}

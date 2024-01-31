@@ -1,0 +1,112 @@
+<div class="row style-edit">
+    <div class="col-xs-12">
+        <form [formGroup]="recipeForm" (ngSubmit)="onSubmit()">
+            <!-- Buttons -->
+            <div class="row">
+                <div class="col-xs-12" style="margin: 10px 10px 10px 0;">
+                    <button 
+                        type="submit" 
+                        class="btn btn-success" 
+                        [disabled]="!recipeForm.valid"
+                        style="margin-right: 10px;">Зберегти</button>
+                    <button 
+                        type="button" 
+                        class="btn btn-danger"
+                        (click)="onCancel()">Відмінити</button>
+                </div>
+            </div>
+            <!-- Inputs -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Назва рецепту:</label>
+                        <input 
+                            type="text" 
+                            id="name"
+                            class="form-control"
+                            formControlName="name">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imagePath">Посилання на зображення:</label>
+                        <input 
+                            type="text" 
+                            id="imagePath"
+                            class="form-control"
+                            formControlName="imagePath"
+                            #imagePath>
+                    </div>
+                </div>
+            </div>
+            <!-- image -->
+            <div class="row">
+                <div class="col-xs-12">
+                    <img [src]="imagePath.value" class="img-responsive">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="decription">Опис рецепту:</label>
+                        <textarea 
+                            type="text" 
+                            id="decription"
+                            class="form-control"
+                            rows="5"
+                            formControlName="description">
+                        </textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12" formArrayName="ingredients">
+                    <div class="row" 
+                         *ngFor="let ingredientCtrl of controls; let i = index"
+                         [formGroupName]="i"
+                         style="margin-top: 10px;">
+                        <!-- Ingredients -->
+                        <div class="col-xs-5">
+                            <input 
+                                type="text"
+                                class="form-control"
+                                placeholder="Назва інгредієнту"
+                                formControlName="name">
+                        </div>
+                        <div class="col-xs-2">
+                            <input 
+                                type="number"
+                                class="form-control"
+                                placeholder="Кільк."
+                                formControlName="amount">
+                        </div>
+                        <div class="col-xs-2">
+                            <input 
+                                type="text"
+                                class="form-control"
+                                placeholder="Одиниці"
+                                formControlName="weight">
+                        </div>
+                        <div class="col-xs-2">
+                            <button 
+                                type="button"
+                                class="btn btn-danger"
+                                (click)="onDeleteIngredient(i)">Видалити</button>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button 
+                                type="button"
+                                class="btn btn-success" 
+                                (click)="onAddIngredient()">Додати Інгредієнт</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

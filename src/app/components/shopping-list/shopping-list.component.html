@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="col-xs-8 col-xs-offset-2">
+        <app-shopping-edit></app-shopping-edit>
+        <hr>
+        <ul class="list-group">
+            <a 
+            [@Show]
+            class="list-group-item" 
+            style="cursor: pointer;"
+            *ngFor="let ingredient of ingredients; let i = index"
+            (click)="onEditItem(i)"
+            >
+            {{ ingredient.name}} - <b>{{ ingredient.amount }}</b> {{ ingredient.weight }}
+            </a>
+        </ul>
+        <hr>
+        <div class="animation-block">
+            <h1>Тест Анімацій!</h1>
+            <div class="row butt-row">
+                <button class="btn btn-primary" (click)="firstAnim()">Анімація Перша!</button>
+                <!-- <button class="btn btn-primary" (click)="secondAnim()">Анімація Друга!</button> -->
+            </div>
+            <div class="animOne" [@animationOne]="state"></div>
+        </div>
+
+        <!-- API MAP [Leaflet] -->
+        <div class="api-map-try">
+            <app-map></app-map>
+        </div>
+    
+        <!-- New API -->
+
+          
+          
+    </div>
+</div>

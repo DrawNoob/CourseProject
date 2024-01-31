@@ -1,0 +1,44 @@
+<div class="recipe-detail-style">
+    <div class="row">
+        <div class="col-xs-12">
+            <img src="{{ recipe.imagePath }}" alt="Recipe Image" class="img-responsive">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h1>{{ recipe.name}}</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="btn-group" appDropdown>
+                <button 
+                type="button" 
+                class="btn btn-primary dropdown-toggle">
+                Керувати рецептом <span class="caret"></span></button>
+                <ul class="dropdown-menu">
+                    <li><a (click)="onAddToShoppingsList()" style="cursor: pointer;">До корзини</a></li>
+                    <li><a (click)="onEditRecipe()">Редагувати рецепт</a></li>
+                    <li><a (click)="onDeleteRecipe()">Видалити рецепт</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" style="padding: 16px;font-size: 24px;font-weight: bold;">
+            <span style="font-weight: normal;">Гра:</span> {{ recipe.description }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12" >
+            <ul class="list-group">
+                <li 
+                    class="list-group-item"
+                    *ngFor="let ingredient of recipe.ingredients"
+                >
+                    {{ ingredient.name}} - <b>{{ ingredient.amount }}</b> {{ ingredient.weight }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

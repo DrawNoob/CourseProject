@@ -1,0 +1,21 @@
+.recipe-item-style{
+    margin: 10px 0;
+    padding: 20px;
+    border-radius: 14px;
+    border: 2px solid orange;
+    box-shadow: 2px 2px 10px rgba(255, 68, 0, 0.349);
+    span{
+        img{
+            border-radius: 10px;
+        }
+    }
+}
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: black;
+    background-color: orange;
+    border-color: orangered;
+    p{
+        color: black;
+    }
+}

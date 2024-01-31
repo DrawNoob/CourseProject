@@ -1,0 +1,33 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <!-- Logo -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" (click)="collapsed = !collapsed">
+              <span class="icon-bar" *ngFor="let iconBar of [1, 2, 3]"></span>
+            </button>
+            <a routerLink="/" class="navbar-brand">DN Рецепти Ігрового Світу</a>
+          </div>
+          <div class="navbar-collapse" [class.collapse]="collapsed" (window:resize)="collapsed = true">
+            <ul class="nav navbar-nav" *ngIf="isAutheticated">
+                <li routerLinkActive="active"><a routerLink="/recipes">Рецепти</a></li>
+                <li routerLinkActive="active"><a routerLink="/shopping-list">Список купівель</a></li>
+                <li routerLinkActive="active"><a routerLink="/new-content">Try a lot</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- Dropdown -->
+                <li class="dropdown" appDropdown *ngIf="isAutheticated">
+                    <a class="dropdown-toggle" role="button">Керувати даними <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a (click)="onSaveData()">Зберегти Дані</a></li>
+                        <li><a (click)="onFetchData()">Отримати Дані</a></li>
+                    </ul>
+                </li>
+                <!-- Login -->
+                <li routerLinkActive="active"><a routerLink="/auth" *ngIf="!isAutheticated">Вхід</a></li>
+                <li>
+                    <a style="cursor: pointer;" *ngIf="isAutheticated" (click)="onLogout()">Вийти</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

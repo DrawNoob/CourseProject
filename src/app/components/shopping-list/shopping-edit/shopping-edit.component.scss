@@ -1,0 +1,25 @@
+.main-shopping-list{
+    padding: 20px;
+    border-radius: 14px;
+    border: 2px solid orange;
+    box-shadow: 2px 2px 10px rgba(255, 68, 0, 0.349);
+    input{
+        box-shadow: 1px 1px 2px orange;
+    }
+    .btn-success{
+        background-color: orange;
+        transition: 0.2s;
+        border: 2px solid orange;
+        &:hover{
+            background-color: yellowgreen;
+        }
+    }
+    .btn-primary{
+        background-color: orangered;
+        transition: 0.2s;
+        border: 2px solid orange;
+        &:hover{
+            background-color: red;
+        }
+    }
+}

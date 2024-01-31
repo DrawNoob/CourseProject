@@ -1,0 +1,55 @@
+<!-- <ng-template appPlaceholder></ng-template> -->
+
+<div class="row col-xs-12 col-md-10" style="margin-right: 0;margin-left: 0;">
+    <div class="col-xs-12 col-md-6  col-md-offset-4 auth-container">
+
+        <!-- <div class="alert alert-danger" *ngIf="error">
+            <p> {{ error }} </p>
+        </div> -->
+
+        <app-alert [message]="error" *ngIf="error" (close)="onHandleError()"></app-alert>
+
+        <div 
+            style="text-align: center;" *ngIf="isLoading">
+            <app-loading-spinner></app-loading-spinner>
+        </div>
+        <form #authFrom="ngForm" (ngSubmit)="onSubmit(authFrom)" *ngIf="!isLoading">
+            <div class="form-group">
+                <label for="email">Електронна пошта</label>
+                <input 
+                    class="form-control" 
+                    type="email" 
+                    id="email" 
+                    ngModel 
+                    required
+                    name="email"
+                    email>
+            </div>
+            <div class="form-group">
+                <label for="password">Пароль</label>
+                <input 
+                    class="form-control" 
+                    type="password" 
+                    ngModel
+                    required
+                    name="password"
+                    minlenght="6"
+                    id="password">
+            </div>
+            <div class="row">
+                <br>
+                <button 
+                    class="btn btn-success col-xs-8 col-xs-offset-2" 
+                    [disabled]="!authFrom.valid"
+                    type="submit"> {{ isLoginMode ? 'Увійти' : 'Зареєструватися' }} 
+                </button> 
+                <br><br><br>
+                <p class="text-auth"> {{ isLoginMode ? 'Немає акаунту?' : 'Уже маєте акаунт?' }} </p>
+                <button 
+                    class="btn btn-primary col-xs-6 col-xs-offset-3" 
+                    type="button" (click)="onSwitchMode()"> {{ isLoginMode ? 'Зареєструватися' : 'Увійти' }} 
+            </button>
+            </div>
+        </form>
+    </div>
+</div>
